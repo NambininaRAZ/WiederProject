@@ -8,6 +8,7 @@ import Home from '../Page/Home/Home';
 import Error from '../Page/Error/Error';
 import Login from '../Page/Auth/Login/Login'
 import Register from '../Page/Auth/Register/Register'
+import AuthCheck from '../AuthCheck/AuthCheck';
 
 
 const MainLayout = () => {
@@ -16,7 +17,11 @@ const MainLayout = () => {
     {/* Navbar */}
       <Navbar />
       <Routes>
-        <Route path='/' element={<Home/>} />
+        <Route path='/' element={
+          <AuthCheck>
+                <Home/>
+          </AuthCheck>
+          } />
         <Route path = 'auth' element={<Auth/>}>
           <Route path='login' element={<Login/>}/>
           <Route path='register' element={<Register/>}/>
